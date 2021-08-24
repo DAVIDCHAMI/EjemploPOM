@@ -22,7 +22,6 @@ Característica: Realizar pago de un siniestro
       | Línea de Reserva | Tipo de pago | Beneficiario del pago             | Método del pago | ¿Es pago soloSura? | Tipo y Cobertura    |
       | 1ª parteVehículo | Parcial      | CARLOS ARTURO CEBALLOS NUÑÑEZ CQLII| Caja Sura       | No                 | Perdida total Daños |
 
-  @prueba
   @pagoPerdidaTotalAutos
   @claimsAuto
   Esquema del escenario: Crear pago del siniestro autos

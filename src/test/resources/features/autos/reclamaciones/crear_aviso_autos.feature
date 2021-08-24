@@ -22,7 +22,7 @@ Característica: Generación avisos de siniestros autos
       |Colisión con vehículo|responsabilidad Civil|peaton daños persona|conductor daños vehículo|
     Entonces se obtendrán exposiciones automáticas y cada una con su respectiva reserva, según la culpabilidad marcada Responsabilidad Civil
 
-    @prueba
+
   @claimsAuto
   @pruebaRegresion
   Escenario: generación de reclamación de tipo Archivo
