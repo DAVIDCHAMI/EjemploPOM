@@ -5,7 +5,7 @@ Característica: Realizar pago de un siniestro
   Para cancelar al asegurado, tercero y/o proveedor involucrados en el siniestro.
 
   Antecedentes: Crear poliza
-    Dado se tiene una póliza de autos individual con plan Global de vigencia anual con 59 de retroactividad
+    Dado se tiene una póliza de autos individual con plan Global de vigencia anual con 5 de retroactividad
 
   @pagoLineaReservaAutos
   @claimsAuto
@@ -38,6 +38,7 @@ Característica: Realizar pago de un siniestro
       | 1ª parteVehículo | Parcial      | CARLOS ARTURO CEBALLOS NUÑÑEZ CQLII | Caja Sura      | No        | Perdida total Daños |
 
 
+    @test1
   @chequeMultiplesPagosAutos
   @claimsAuto
   Esquema del escenario: Crear cheque con múltiples pagos a diferentes líneas de reserva de un siniestro autos
