@@ -1,7 +1,6 @@
 package com.sura.reclamaciones.pages.general;
 
-import static com.sura.reclamaciones.utils.enums.Constantes.COMODIN;
-import static com.sura.reclamaciones.utils.enums.Constantes.NUMERO_INTENTOS_ESPERA_ELEMENTO;
+import static com.sura.reclamaciones.utils.enums.Constantes.*;
 import static com.sura.reclamaciones.utils.enums.Tablas.CABECERAS_CC;
 import static com.sura.reclamaciones.utils.enums.Tablas.REGISTROS_CC;
 
@@ -14,6 +13,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.steps.StepInterceptor;
+import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
@@ -64,6 +64,9 @@ public class GeneralPage extends PageObject {
 
   @FindBy(xpath = "//span[@class='x-btn-button']//span[contains(text(),'Anular')]//parent::span")
   public WebElementFacade btnAnular;
+
+  @FindBy(id = "ClaimExposures:ClaimExposuresScreen:ExposuresLV")
+  public WebElementFacade lblExposiciones;
 
   private String tblPago =
       "//tr//td//div//a[contains(text(),'%s')]//parent::div//parent::td//parent::tr//td";
@@ -427,5 +430,15 @@ public class GeneralPage extends PageObject {
 
   public void seleccionarDepartamento(String departamento) {
     seleccionarElementoListado(this.departamento, departamento);
+  }
+
+  public void validarExposicionCreada() {
+    List<WebElement> exposiciones =
+        obtenerElementoTablaDatoDesconocido(lblExposiciones, SUBTIPO_DE_COBERTURA.getValor(), 3);
+    String exposicion = "Responsabilidad civil - daños al vehículo";
+    for (int i = 0; i <= exposiciones.size() - 1; i++) {
+      MatcherAssert.assertThat(
+          "No se crea la exposcion correcta", (exposiciones.get(i).getText().equals(exposicion)));
+    }
   }
 }

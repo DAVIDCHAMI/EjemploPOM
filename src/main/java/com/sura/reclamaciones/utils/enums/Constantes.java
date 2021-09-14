@@ -58,7 +58,8 @@ public enum Constantes {
   USD("USD"),
   USUARIO("GW_CONF"),
   VALIDADOR_NUEVA_RECLAMACION("Nueva reclamación guardada"),
-  VALOR_CERO("0");
+  VALOR_CERO("0"),
+  SUBTIPO_DE_COBERTURA("Subtipo de cobertura");
 
   private String valor;
 

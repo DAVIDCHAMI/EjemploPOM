@@ -116,4 +116,11 @@ public class ExposicionVehicularManualStep {
       nuevaExposicionManualPage.actualizarNuevaExposicion();
     }
   }
+
+  @Step
+  public void crearExposicionVehicular(
+      List<Map<String, String>> opcionesCrearExposicion,
+      List<ExposicionVehiculoTercero> datosVehiculoTercero,
+      int numeroVehiculosInvolucradosTercero,
+      List<Vehiculo> datosVehiculos) {}
 }

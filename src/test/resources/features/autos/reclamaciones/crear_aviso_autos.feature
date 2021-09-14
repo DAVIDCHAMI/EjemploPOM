@@ -65,3 +65,16 @@ Característica: Generación avisos de siniestros autos
     Dado que se tiene una póliza con coberturas vigentes, se ingresa la reclamación a través de creacionAvisoMACA de autos
     Cuando se genera un aviso que afecta la cobertura de Responsabilidad civil
     Entonces se le brindará al reclamante el número de reclamación
+
+
+  @test1
+    @claimsAuto
+  Esquema del escenario: Crear exposicion en reclamacion
+    Dado que se tiene una póliza con coberturas vigentes, se ingresa la reclamación a través de creacionAvisoMACA de autos
+    Y se genera un aviso que afecta la cobertura de <Cobertura>
+    Cuando se cree la exposicion <Número de vehículos involucrados del tercero en el siniestro>
+    Entonces se debe porder viozualizar la exposicion creada
+
+    Ejemplos:
+      | Número de vehículos involucrados del tercero en el siniestro|
+      | 1                                                           |

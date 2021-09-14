@@ -1,18 +1,18 @@
 package com.sura.reclamaciones.definitions.autos.reclamaciones;
 
 import static com.sura.reclamaciones.utils.UtilidadesCSV.obtenerDatosPrueba;
-import static com.sura.reclamaciones.utils.enums.Filtros.CREACION_AVISO_AUTOS_WS;
-import static com.sura.reclamaciones.utils.enums.Filtros.PERSONA_CONDUCTOR;
-import static com.sura.reclamaciones.utils.enums.Filtros.PERSONA_LESIONADA;
-import static com.sura.reclamaciones.utils.enums.NombresCsv.PARAMETROS_RECLAMACION_PERSONA_AUTO;
-import static com.sura.reclamaciones.utils.enums.NombresCsv.PARAMETROS_SINIESTRO_AUTOS;
-import static com.sura.reclamaciones.utils.enums.NombresCsv.PARAMETROS_VEHICULO;
+import static com.sura.reclamaciones.utils.enums.Filtros.*;
+import static com.sura.reclamaciones.utils.enums.NombresCsv.*;
 import static com.sura.reclamaciones.utils.enums.VariablesSesion.SESION_CC_NUMERO_SINIESTRO;
 import static com.sura.reclamaciones.utils.enums.VariablesSesion.SESION_CC_TIPO_COBERTURA_AFECTADA;
 
+import com.sura.reclamaciones.models.ExposicionVehiculoTercero;
 import com.sura.reclamaciones.models.PersonaReclamacion;
 import com.sura.reclamaciones.models.ReclamacionAuto;
 import com.sura.reclamaciones.models.Vehiculo;
+import com.sura.reclamaciones.steps.guidewire.claimscenter.autos.CrearExposicionStep;
+import com.sura.reclamaciones.steps.guidewire.claimscenter.autos.ExposicionVehicularManualStep;
+import com.sura.reclamaciones.steps.guidewire.claimscenter.autos.ResultadoCreacionExposicionStep;
 import com.sura.reclamaciones.steps.guidewire.claimscenter.comunes.GenericStep;
 import com.sura.reclamaciones.steps.guidewire.claimscenter.comunes.MenuClaimsStep;
 import com.sura.reclamaciones.steps.maca.autos.ConsumoServicioCreacionAvisoSiniestroAutoStep;
@@ -30,10 +30,17 @@ public class ConsumoCreacionAvisoAutosDefinition {
   PersonaReclamacion parametroPersonaConductorAuto = new PersonaReclamacion();
   Vehiculo reclamacionVehiculo = new Vehiculo();
   GenericStep genericStep = new GenericStep();
+  ExposicionVehiculoTercero exposicionVehiculoTercero = new ExposicionVehiculoTercero();
 
   @Steps MenuClaimsStep menuClaimsStep;
 
   @Steps ConsumoServicioCreacionAvisoSiniestroAutoStep creacionAvisoSiniestroAutoStep;
+
+  @Steps CrearExposicionStep crearExposicionStep;
+
+  @Steps ExposicionVehicularManualStep nuevaExposicionVehiculoStep;
+
+  @Steps ResultadoCreacionExposicionStep resultadoCreacionExposicionStep;
 
   @Dado(
       "^que se tiene una póliza con coberturas vigentes, se ingresa la reclamación a través de (.*) de autos$")
@@ -70,5 +77,29 @@ public class ConsumoCreacionAvisoAutosDefinition {
   @Entonces("^se le brindará al reclamante el número de reclamación$")
   public void verificarCreacionAviso() {
     creacionAvisoSiniestroAutoStep.verificarSiniestro();
+  }
+
+  @Cuando("^se cree la exposicion (.*)$")
+  public void crearExposicion(int numeroVehiculosInvolucradosTercero) throws IOException {
+    Vehiculo datosVehiculos = new Vehiculo();
+    // crearExposicionStep.crearExposiciones(exposicon);
+    nuevaExposicionVehiculoStep.consultarPlacaAsegurado();
+    exposicionVehiculoTercero =
+        new ExposicionVehiculoTercero(
+            genericStep.getFilasModelo(
+                PARAMETRO_RESPONSABILIDAD_CIVIL_VEHICULO.getValor(),
+                EXPOSICION_VEHICULAR_TERCERO.getValor()));
+
+    nuevaExposicionVehiculoStep.crearExposicionVehicularManual(
+        genericStep.getFilasModelo(
+            PARAMETROS_NAVEGACION_MENU_ACCIONES.getValor(), EXPOSICION_MANUAL_VEHICULAR.getValor()),
+        exposicionVehiculoTercero.getLstExposicionTerceros(),
+        numeroVehiculosInvolucradosTercero,
+        datosVehiculos.getLstVehiculos());
+  }
+
+  @Entonces("^se debe porder viozualizar la exposicion creada$")
+  public void verificarCreacionExposicion() {
+    resultadoCreacionExposicionStep.buscarExposicionCreada();
   }
 }
