@@ -51,6 +51,7 @@ public class ProcesoBatchPage extends GeneralPage {
         esperarCargaElemento();
         tblNombreProcesoBatch.findBy("//tr[@data-recordindex='" + i + "']//a").click();
         realizarEsperaCarga();
+        esperarCargaElemento();
         break;
       }
     }

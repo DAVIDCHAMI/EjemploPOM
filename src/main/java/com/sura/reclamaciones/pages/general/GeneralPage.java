@@ -229,6 +229,7 @@ public class GeneralPage extends PageObject {
     List<String> cabeceraTabla = obtenerCabecerasTabla(elemento, CABECERAS_CC);
     int posicionDatoDevolver = cabeceraTabla.indexOf(encabezadoColumnaDevolver) + posicionFila;
     List<WebElement> elementoEncontrado = obtenerFilasTabla(elemento, REGISTROS_CC);
+      esperarCargaElemento();
     return elementoEncontrado
         .stream()
         .map(
