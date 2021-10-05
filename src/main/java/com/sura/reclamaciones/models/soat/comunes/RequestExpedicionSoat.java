@@ -49,4 +49,6 @@ public class RequestExpedicionSoat implements Serializable {
 
   @JsonProperty("urlRetorno")
   private String urlRetorno;
+
+  private static final long serialVersionUID = 2221590886969913165L;
 }

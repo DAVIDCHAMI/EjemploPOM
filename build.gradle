@@ -6,7 +6,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "io.freefair.gradle:lombok-plugin:6.2.0"
+        //classpath "io.freefair.gradle:lombok-plugin:6.2.0"
         //classpath "io.freefair.gradle:lombok-plugin:5.0.0-rc6"
         classpath "net.serenity-bdd:serenity-gradle-plugin:1.9.4"
         classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.8"
@@ -109,7 +109,11 @@ dependencies {
 // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+    //compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 
 
 }

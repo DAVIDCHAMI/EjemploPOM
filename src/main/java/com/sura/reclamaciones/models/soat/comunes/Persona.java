@@ -66,4 +66,6 @@ public class Persona implements Serializable {
 
   @JsonProperty("tipoDocumento")
   private final String tipoDocumento;
+
+  private static final long serialVersionUID = -3230342983347983102L;
 }
