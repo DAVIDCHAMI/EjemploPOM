@@ -1,0 +1,3 @@
+id;idFiltro       ;numeroDocumentoTomador;numeroDocumentoPropietario;primerApellido;primerNombre;razonSocial    ;segundoApellido;segundoNombre;tipoDocumento;celular   ;direccion  ;email                ;fechaNacimiento;idCiudad;idDepartamento;naturalezaJuridica
+1 ;riesgo estandar;1010215666            ;1010215666                ;Carvajal      ;Andrés      ;Persona Natural;Gomez          ;Camilo       ;C            ;3167929304;CL 77 24 31;medellin23@hotmai.com;1991-08-21     ;4292    ;05            ;1
+2 ;riesgo moral   ;1037695448            ;1010215666                ;Carvajal      ;Andrés      ;Persona Natural;Gomez          ;Camilo       ;C            ;3167929304;CL 77 24 31;medellin23@hotmai.com;1991-08-21     ;4292    ;05            ;1

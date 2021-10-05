@@ -1,0 +1,127 @@
+package com.sura.reclamaciones.models.soat;
+
+import com.sura.reclamaciones.utils.Utilidades;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class Personas {
+
+  private int numeroDocumentoTomador;
+  private int numeroDocumentoPropietario;
+  private String primerApellido;
+  private String primerNombre;
+  private String razonSocial;
+  private String segundoApellido;
+  private String segundoNombre;
+  private String tipoDocumento;
+  private int celular;
+  private String direccion;
+  private String email;
+
+  public int getNumeroDocumentoTomador() {
+    return numeroDocumentoTomador;
+  }
+
+  public int getNumeroDocumentoPropietario() {
+    return numeroDocumentoPropietario;
+  }
+
+  public String getPrimerApellido() {
+    return primerApellido;
+  }
+
+  public String getPrimerNombre() {
+    return primerNombre;
+  }
+
+  public String getRazonSocial() {
+    return razonSocial;
+  }
+
+  public String getSegundoApellido() {
+    return segundoApellido;
+  }
+
+  public String getSegundoNombre() {
+    return segundoNombre;
+  }
+
+  public String getTipoDocumento() {
+    return tipoDocumento;
+  }
+
+  public int getCelular() {
+    return celular;
+  }
+
+  public String getDireccion() {
+    return direccion;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public String getFechaNacimiento() {
+    return fechaNacimiento;
+  }
+
+  public int getIdCiudad() {
+    return idCiudad;
+  }
+
+  public int getIdDepartamento() {
+    return idDepartamento;
+  }
+
+  public int getNaturalezaJuridica() {
+    return naturalezaJuridica;
+  }
+
+  public List<Personas> getPersonas() {
+    return personas;
+  }
+
+  private String fechaNacimiento;
+  private int idCiudad;
+  private int idDepartamento;
+  private int naturalezaJuridica;
+  private List<Personas> personas = new ArrayList<>();
+
+  public Personas() {}
+
+  public Personas(List<Map<String, String>> datoVehiculo) {
+    asignarDatos(datoVehiculo);
+  }
+
+  public Personas(Map<String, String> datosVehiculos) {
+    this.numeroDocumentoTomador =
+        Utilidades.transformarCadenaEnteroCondicionado(
+            datosVehiculos.get("numeroDocumentoTomador"));
+    numeroDocumentoPropietario =
+        Utilidades.transformarCadenaEnteroCondicionado(
+            datosVehiculos.get("numeroDocumentoPropietario"));
+    primerApellido = datosVehiculos.get("primerApellido");
+    primerNombre = datosVehiculos.get("primerNombre");
+    razonSocial = datosVehiculos.get("razonSocial");
+    segundoApellido = datosVehiculos.get("segundoApellido");
+    segundoNombre = datosVehiculos.get("segundoNombre");
+    tipoDocumento = datosVehiculos.get("tipoDocumento");
+    celular = Utilidades.transformarCadenaEnteroCondicionado(datosVehiculos.get("celular"));
+    direccion = datosVehiculos.get("noPlaca");
+    email = datosVehiculos.get("email");
+    fechaNacimiento = datosVehiculos.get("datosTecnicos");
+    idCiudad = Utilidades.transformarCadenaEnteroCondicionado(datosVehiculos.get("idCiudad"));
+    idDepartamento =
+        Utilidades.transformarCadenaEnteroCondicionado(datosVehiculos.get("idDepartamento"));
+    naturalezaJuridica =
+        Utilidades.transformarCadenaEnteroCondicionado(datosVehiculos.get("naturalezaJuridica"));
+  }
+
+  public void asignarDatos(List<Map<String, String>> datoVehiculo) {
+    for (Map<String, String> dato : datoVehiculo) {
+      personas.add(new Personas(dato));
+    }
+  }
+}

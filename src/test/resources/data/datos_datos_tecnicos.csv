@@ -1,0 +1,10 @@
+id;idFiltro                                    ;capacidadCarga;pesoBrutoVehicular;idTipoCombustible;
+1 ;DatoTecnicoSoloElectrico                    ;              ;                  ;5                ;
+2 ;DatoTecnicoSoloGasolina                     ;              ;                  ;1                ;
+5 ;Motos~Motocarros Tricimotos y Cuadriciclos  ;339           ;787               ;1                ;
+6 ;DatoTecnicoVehiculosOficiales               ;1340          ;3100              ;3                ;
+9 ;DatoTecnicoCamperosYCamionetas              ;527           ;2100              ;1                ;
+21;DatoTecnicoVehiculosMasDe6Pasajeros         ;              ;4600              ;3                ;
+25;Vehículo de carga o mixto~Menos de 5 Tons.  ;1340          ;                  ;1                ;
+26;Vehículo de carga o mixto~Entre 5 y 15 Tons.;6000          ;                  ;1                ;
+27;Vehículo de carga o mixto~Más de 15 Tons.   ;16000         ;                  ;1                ;

@@ -2,6 +2,7 @@ package com.sura.reclamaciones.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import org.joda.time.DateTime;
 
@@ -49,5 +50,9 @@ public final class Fecha {
   public static String obtenerFechaFormatoISO(String fecha) {
     String hora = new DateTime().toLocalTime().toString();
     return new DateTime(fecha + "T" + hora).toString();
+  }
+
+  public static String disminuirDiasFechaActual(int dias) {
+    return LocalDate.now().minusDays(dias).toString();
   }
 }

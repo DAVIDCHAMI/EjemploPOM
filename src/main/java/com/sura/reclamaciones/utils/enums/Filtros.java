@@ -17,6 +17,9 @@ public enum Filtros {
   RECLAMACION_ARCHIVO("archivo"),
   RECLAMACION_RESPONSABILIDAD_CIVIL("responsabilidadCivil"),
   RECLAMACION_SOLO_RESPONSABILIDAD_CIVIL("soloRC"),
+  CLASE_DE_VEHICULO("Auto familiar con menos de 1500 c.c y modelo 2015"),
+  POLIZA_SOAT_RIESGO("riesgo estandar"),
+  DATOS_TECNICOS_SOAT("DatoTecnicoSoloGasolina"),
   RECLAMACION_SUBROGACION("subrogacion");
 
   private String valor;

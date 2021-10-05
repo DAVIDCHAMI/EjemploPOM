@@ -25,7 +25,11 @@ public enum NombresCsv {
   PARAMETRO_RESPONSABILIDAD_CIVIL_VEHICULO("responsabilidad_civil_vehiculo"),
   RECLAMACION_EMPRESARIAL("reclamacion_empresarial"),
   RECUPERO_SINIESTRO("recupero_siniestro"),
-  TOMADOR("tomador");
+  TOMADOR("tomador"),
+  DATOS_TECNICOS("datos_tecnicos"),
+  DATOS_PERSONA("personas"),
+  DATOS_GENERICOS_REQUEST("genericos_request"),
+  CARACTERISTICAS_VEHICULO("caracteristicas_vehiculo");
 
   private String valor;
 
