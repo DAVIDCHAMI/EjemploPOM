@@ -1,9 +1,13 @@
 package com.sura.reclamaciones.steps.guidewire.claimscenter.soat;
 
+import static com.sura.reclamaciones.utils.enums.EnumRecursosServicios.RECURSO_URL_SERVICIO_SOAT;
+import static com.sura.reclamaciones.utils.enums.VariablesSesion.SESION_PC_RESPUESTA_SERVICIO_SOAT;
+
 import com.sura.reclamaciones.models.soat.comunes.RequestExpedicionSoat;
 import com.sura.reclamaciones.utils.enums.EnumCredencialesServicios;
 import io.restassured.http.ContentType;
 import java.util.Map;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abiities.CallAnApi;
@@ -11,7 +15,7 @@ import net.serenitybdd.screenplay.rest.interactions.Post;
 
 public class ConsumirServicioSoapPostConHeaders {
 
-  private static final String restApiUrl = "appslab.suranet.com/apisoatexpedicion/api";
+  private String restApiUrl = "http://appslab.suranet.com/apisoatexpedicion/api";
   Actor prueba = Actor.named("prueba servicio").whoCan(CallAnApi.at(restApiUrl));
 
   public String recurso;
@@ -34,21 +38,29 @@ public class ConsumirServicioSoapPostConHeaders {
   }
 
   public void ejecutarConsumo() {
-    Post.to(recurso)
-        .with(
-            requestSpecification ->
-                requestSpecification
-                    .log()
-                    .all()
-                    .headers(header)
-                    .auth()
-                    .preemptive()
-                    .basic(usuario, contrasena)
-                    .contentType(ContentType.JSON)
-                    .body(request)
-                    .log()
-                    .all());
 
-    System.out.println(SerenityRest.lastResponse().statusCode());
+    Actor prueba =
+        Actor.named("usuario prueba").whoCan(CallAnApi.at(RECURSO_URL_SERVICIO_SOAT.getRecurso()));
+    prueba.attemptsTo(
+        Post.to(recurso)
+            .with(
+                requestSpecification ->
+                    requestSpecification
+                        .log()
+                        .all()
+                        .headers(header)
+                        .auth()
+                        .preemptive()
+                        .basic(usuario, contrasena)
+                        .contentType(ContentType.JSON)
+                        .body(request)
+                        .log()
+                        .all()));
+
+    Serenity.setSessionVariable(SESION_PC_RESPUESTA_SERVICIO_SOAT)
+        .to(SerenityRest.lastResponse().body());
+
+    System.out.println(SerenityRest.lastResponse().body());
+    System.out.println(Serenity.getCurrentSession().get(SESION_PC_RESPUESTA_SERVICIO_SOAT));
   }
 }

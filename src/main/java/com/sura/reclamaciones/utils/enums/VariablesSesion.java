@@ -22,6 +22,7 @@ public enum VariablesSesion {
   SESION_CC_VALOR_RESERVA_CONSTITUCION("valorReservaConstitución"),
   SESION_CC_NUMERO_PLACA("numeroPlaca"),
   SESION_PC_NUMERO_POLIZA("numeroPoliza"),
+  SESION_PC_RESPUESTA_SERVICIO_SOAT("respuestaSoat"),
   SESION_CC_NUMERO_PLACA_SOAT("Placa del vehículo"),
   SESION_CC_REQUEST_EXPEDICION("requestExpedicion"),
   SESION_CC_NUMERO_PAGOS_INDIVIDUALES("NumeroPagosIndividuales");

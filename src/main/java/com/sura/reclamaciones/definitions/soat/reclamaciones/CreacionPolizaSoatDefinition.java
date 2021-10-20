@@ -17,24 +17,24 @@ import net.thucydides.core.annotations.Steps;
 
 public class CreacionPolizaSoatDefinition {
 
-  Vehiculo vehiculo = new Vehiculo();
-  Personas persona = new Personas();
-  DatosGenerico datosGenerico = new DatosGenerico();
-  DatosTecnico datosTecnico = new DatosTecnico();
+  // Vehiculo vehiculo = new Vehiculo();
+  // Personas persona = new Personas();
+  // DatosGenerico datosGenerico = new DatosGenerico();
+  // DatosTecnico datosTecnico = new DatosTecnico();
 
   @Steps ExpedirPolizaSoatRequestStep expedirPolizaSoatRequestStep;
 
   @Dado("que una persona (.*) tiene un (.*) registrado en el Runt")
   public void registrarVehiculoRunt(String tipoRiesgo, String claseVehiculo) throws IOException {
-    vehiculo =
+    Vehiculo vehiculo =
         new Vehiculo(
             obtenerDatosPrueba(CARACTERISTICAS_VEHICULO.getValor(), CLASE_DE_VEHICULO.getValor()));
-    persona =
+    Personas persona =
         new Personas(obtenerDatosPrueba(DATOS_PERSONA.getValor(), POLIZA_SOAT_RIESGO.getValor()));
-    datosGenerico =
+    DatosGenerico datosGenerico =
         new DatosGenerico(
             obtenerDatosPrueba(DATOS_GENERICOS_REQUEST.getValor(), POLIZA_SOAT_RIESGO.getValor()));
-    datosTecnico =
+    DatosTecnico datosTecnico =
         new DatosTecnico(
             obtenerDatosPrueba(DATOS_TECNICOS.getValor(), DATOS_TECNICOS_SOAT.getValor()));
 

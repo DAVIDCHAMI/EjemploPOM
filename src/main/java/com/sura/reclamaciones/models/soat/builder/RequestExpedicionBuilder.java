@@ -11,15 +11,15 @@ public class RequestExpedicionBuilder {
   public static RequestExpedicionSoat conLosDatos(
       DatosGenerico datosGenerico, Vehiculo vehiculo, Personas persona) {
     return RequestExpedicionSoat.builder()
-        .codigoAsesor(String.valueOf(datosGenerico.getCodigoAsesor()))
-        .direccionIP(datosGenerico.getDireccionIp())
+        .codigoAsesor(String.valueOf(datosGenerico.getDatosGenericos().get(0).getCodigoAsesor()))
+        .direccionIP(datosGenerico.getDatosGenericos().get(0).getDireccionIp())
         .fechaInicioVigencia(Fecha.disminuirDiasFechaActual(1))
-        .placa(vehiculo.getNoPlaca())
+        .placa(vehiculo.getVehiculos().get(0).getNoPlaca())
         .propietario(PropietarioBuilder.conLosDatos(persona))
-        .retroactiva(datosGenerico.getRetroactiva())
-        .tenant(datosGenerico.getTenant())
+        .retroactiva(datosGenerico.getDatosGenericos().get(0).getRetroactiva())
+        .tenant(datosGenerico.getDatosGenericos().get(0).getTenant())
         .tomador(TomadorBuilder.conLosDatos(persona))
-        .urlRetorno(datosGenerico.getUrlRetorno())
+        .urlRetorno(datosGenerico.getDatosGenericos().get(0).getUrlRetorno())
         .build();
   }
 }

@@ -15,7 +15,7 @@ public class Personas {
   private String segundoApellido;
   private String segundoNombre;
   private String tipoDocumento;
-  private int celular;
+  private String celular;
   private String direccion;
   private String email;
 
@@ -51,7 +51,7 @@ public class Personas {
     return tipoDocumento;
   }
 
-  public int getCelular() {
+  public String getCelular() {
     return celular;
   }
 
@@ -91,36 +91,36 @@ public class Personas {
 
   public Personas() {}
 
-  public Personas(List<Map<String, String>> datoVehiculo) {
-    asignarDatos(datoVehiculo);
+  public Personas(List<Map<String, String>> datosPersona) {
+    asignarDatos(datosPersona);
   }
 
-  public Personas(Map<String, String> datosVehiculos) {
+  public Personas(Map<String, String> datosPersona) {
     this.numeroDocumentoTomador =
-        Utilidades.transformarCadenaEnteroCondicionado(
-            datosVehiculos.get("numeroDocumentoTomador"));
+        Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("numeroDocumentoTomador"));
     numeroDocumentoPropietario =
         Utilidades.transformarCadenaEnteroCondicionado(
-            datosVehiculos.get("numeroDocumentoPropietario"));
-    primerApellido = datosVehiculos.get("primerApellido");
-    primerNombre = datosVehiculos.get("primerNombre");
-    razonSocial = datosVehiculos.get("razonSocial");
-    segundoApellido = datosVehiculos.get("segundoApellido");
-    segundoNombre = datosVehiculos.get("segundoNombre");
-    tipoDocumento = datosVehiculos.get("tipoDocumento");
-    celular = Utilidades.transformarCadenaEnteroCondicionado(datosVehiculos.get("celular"));
-    direccion = datosVehiculos.get("noPlaca");
-    email = datosVehiculos.get("email");
-    fechaNacimiento = datosVehiculos.get("datosTecnicos");
-    idCiudad = Utilidades.transformarCadenaEnteroCondicionado(datosVehiculos.get("idCiudad"));
+            datosPersona.get("numeroDocumentoPropietario"));
+    primerApellido = datosPersona.get("primerApellido");
+    primerNombre = datosPersona.get("primerNombre");
+    razonSocial = datosPersona.get("razonSocial");
+    segundoApellido = datosPersona.get("segundoApellido");
+    segundoNombre = datosPersona.get("segundoNombre");
+    tipoDocumento = datosPersona.get("tipoDocumento");
+    // celular = Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("celular"));
+    celular = datosPersona.get("celular");
+    direccion = datosPersona.get("direccion");
+    email = datosPersona.get("email");
+    fechaNacimiento = datosPersona.get("fechaNacimiento");
+    idCiudad = Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("idCiudad"));
     idDepartamento =
-        Utilidades.transformarCadenaEnteroCondicionado(datosVehiculos.get("idDepartamento"));
+        Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("idDepartamento"));
     naturalezaJuridica =
-        Utilidades.transformarCadenaEnteroCondicionado(datosVehiculos.get("naturalezaJuridica"));
+        Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("naturalezaJuridica"));
   }
 
-  public void asignarDatos(List<Map<String, String>> datoVehiculo) {
-    for (Map<String, String> dato : datoVehiculo) {
+  public void asignarDatos(List<Map<String, String>> datosPersona) {
+    for (Map<String, String> dato : datosPersona) {
       personas.add(new Personas(dato));
     }
   }

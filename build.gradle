@@ -18,6 +18,8 @@ buildscript {
  //id "io.freefair.lombok" version "6.2.0"
 //}
 
+
+
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }

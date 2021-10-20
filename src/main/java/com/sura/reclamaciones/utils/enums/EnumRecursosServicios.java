@@ -3,6 +3,7 @@ package com.sura.reclamaciones.utils.enums;
 public enum EnumRecursosServicios {
   COTIZACION("/cotizaciones"),
   EXPEDICION("/polizas"),
+  RECURSO_URL_SERVICIO_SOAT("http://appslab.suranet.com/apisoatexpedicion/api"),
   VALIDACIONES_PREPOLIZA("/validaciones-prepoliza"),
   ANULAR_PREPOLIZA("/anular"),
   BASE_URL_SOAP("http://appslab.suranet.com:80"),

@@ -7,13 +7,14 @@ public class PropietarioBuilder {
 
   public static Persona conLosDatos(Personas persona) {
     return Persona.builder()
-        .numeroDocumento(String.valueOf(persona.getNumeroDocumentoPropietario()))
-        .primerApellido(persona.getPrimerApellido())
-        .primerNombre(persona.getPrimerNombre())
-        .razonSocial(persona.getRazonSocial())
-        .segundoApellido(persona.getSegundoApellido())
-        .segundoNombre(persona.getSegundoNombre())
-        .tipoDocumento(persona.getTipoDocumento())
+        .numeroDocumento(
+            String.valueOf(persona.getPersonas().get(0).getNumeroDocumentoPropietario()))
+        .primerApellido(persona.getPersonas().get(0).getPrimerApellido())
+        .primerNombre(persona.getPersonas().get(0).getPrimerNombre())
+        .razonSocial(persona.getPersonas().get(0).getRazonSocial())
+        .segundoApellido(persona.getPersonas().get(0).getSegundoApellido())
+        .segundoNombre(persona.getPersonas().get(0).getSegundoNombre())
+        .tipoDocumento(persona.getPersonas().get(0).getTipoDocumento())
         .build();
   }
 }
