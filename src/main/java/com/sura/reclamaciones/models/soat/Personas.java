@@ -71,7 +71,7 @@ public class Personas {
     return idCiudad;
   }
 
-  public int getIdDepartamento() {
+  public String getIdDepartamento() {
     return idDepartamento;
   }
 
@@ -85,7 +85,7 @@ public class Personas {
 
   private String fechaNacimiento;
   private int idCiudad;
-  private int idDepartamento;
+  private String idDepartamento;
   private int naturalezaJuridica;
   private List<Personas> personas = new ArrayList<>();
 
@@ -113,8 +113,7 @@ public class Personas {
     email = datosPersona.get("email");
     fechaNacimiento = datosPersona.get("fechaNacimiento");
     idCiudad = Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("idCiudad"));
-    idDepartamento =
-        Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("idDepartamento"));
+    idDepartamento = (datosPersona.get("idDepartamento"));
     naturalezaJuridica =
         Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("naturalezaJuridica"));
   }
