@@ -8,7 +8,6 @@ Característica: Generación avisos de siniestros soat
   Antecedentes: Crear poliza
     Dado que una persona riesgo estandar tiene un Auto familiar con menos de 1500 c.c y modelo 2015 registrado en el Runt
 
-
   @claimsAuto
   @pruebaRegresion
   Escenario: generación de reclamación de tipo Responsabilidad Civil

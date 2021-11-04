@@ -42,5 +42,6 @@ public class CreacionPolizaSoatDefinition {
 
     expedirPolizaSoatRequestStep.enviarDatosConsumoServicio(
         vehiculo, persona, datosGenerico, datosTecnico);
+
   }
 }

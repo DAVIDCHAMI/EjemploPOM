@@ -58,9 +58,9 @@ public class ConsumirServicioSoapPostConHeaders {
                         .all()));
 
     Serenity.setSessionVariable(SESION_PC_RESPUESTA_SERVICIO_SOAT)
-        .to(SerenityRest.lastResponse().body());
+        .to(SerenityRest.lastResponse().asString());
 
-    System.out.println(SerenityRest.lastResponse().body());
+    System.out.println(SerenityRest.lastResponse().getBody().jsonPath().getString("poliza"));
     System.out.println(Serenity.getCurrentSession().get(SESION_PC_RESPUESTA_SERVICIO_SOAT));
   }
 }

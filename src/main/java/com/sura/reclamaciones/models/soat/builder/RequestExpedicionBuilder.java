@@ -13,7 +13,7 @@ public class RequestExpedicionBuilder {
     return RequestExpedicionSoat.builder()
         .codigoAsesor(String.valueOf(datosGenerico.getDatosGenericos().get(0).getCodigoAsesor()))
         .direccionIP(datosGenerico.getDatosGenericos().get(0).getDireccionIp())
-        .fechaInicioVigencia(Fecha.disminuirDiasFechaActual(1))
+        .fechaInicioVigencia(Fecha.disminuirDiasFechaActual(2))
         .placa(vehiculo.getVehiculos().get(0).getNoPlaca())
         .propietario(PropietarioBuilder.conLosDatos(persona))
         .retroactiva(datosGenerico.getDatosGenericos().get(0).getRetroactiva())
