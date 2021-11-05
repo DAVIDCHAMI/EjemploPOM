@@ -79,6 +79,9 @@ public class BuscarPolizaPage extends GeneralPage {
   @FindBy(xpath = "//input[@name='RiesgosOption']")
   private WebElementFacade rbtRiesgoPolizaAtr;
 
+  @FindBy(xpath = "//div[contains(text(),'La búsqueda no devolvió resultados.')]")
+  private WebElementFacade lblMensajeError;
+
   public BuscarPolizaPage(WebDriver driver) {
     super(driver);
   }
@@ -167,7 +170,20 @@ public class BuscarPolizaPage extends GeneralPage {
     realizarEsperaCarga();
   }
 
+
   public void seleccionarRiegoPolizaAtr() {
     rbtRiesgoPolizaAtr.waitUntilVisible().click();
   }
+
+
+    public void validarPoliza() {
+      for (int i=0; i<=10; i++){
+          if(lblMensajeError.isPresent()){
+              buscarPoliza();
+          }else {
+              continuarSiguientePantalla();
+          }
+      }
+
+    }
 }

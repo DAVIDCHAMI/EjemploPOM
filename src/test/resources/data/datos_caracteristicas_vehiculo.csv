@@ -1,2 +1,2 @@
 id;idFiltro                                         ;idTipoServicio;idClaseVehiculo;idMarca;idLinea;modelo;noMotor     ;noChasis       ;noVin          ;cilindraje;noPlaca;capacidadPasajerosSentados;datosTecnicos
-1 ;Auto familiar con menos de 1500 c.c y modelo 2015;1             ;1              ;8      ;7258   ;2015  ;G4HGBM425378;LAB51HACM737301;LAB51HACM737301;1400      ;SDK382 ;4                         ;DatoTecnicoSoloGasolina
+1 ;Auto familiar con menos de 1500 c.c y modelo 2015;1             ;1              ;8      ;7258   ;2015  ;G4HGBM425378;LAB51HACM737301;LAB51HACM737301;1400      ;PTE866 ;4                         ;DatoTecnicoSoloGasolina

@@ -25,6 +25,7 @@ public enum VariablesSesion {
   SESION_PC_RESPUESTA_SERVICIO_SOAT("respuestaSoat"),
   SESION_CC_NUMERO_PLACA_SOAT("Placa del vehículo"),
   SESION_CC_REQUEST_EXPEDICION("requestExpedicion"),
+  SESION_CC_COMPLEMENTO_NUMERO_POLIZA_SOAT("041000"),
   SESION_CC_NUMERO_PAGOS_INDIVIDUALES("NumeroPagosIndividuales");
 
   private String valor;

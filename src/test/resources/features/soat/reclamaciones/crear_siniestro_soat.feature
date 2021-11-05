@@ -10,9 +10,5 @@ Característica: Generación avisos de siniestros soat
 
   @claimsAuto
   @pruebaRegresion
-  Escenario: generación de reclamación de tipo Responsabilidad Civil
-    Dado que se tiene una póliza con las coberturas
-      |coberturas|
-      |Daños     |
-      |Vehículo de reemplazo|
-      |responsabilidadCivil                     |
+  Escenario: generación de reclamación soat
+    Dado que se quiere generar un aviso de siniestro

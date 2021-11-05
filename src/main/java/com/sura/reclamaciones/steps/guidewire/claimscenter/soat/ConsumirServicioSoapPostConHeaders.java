@@ -1,6 +1,7 @@
 package com.sura.reclamaciones.steps.guidewire.claimscenter.soat;
 
 import static com.sura.reclamaciones.utils.enums.EnumRecursosServicios.RECURSO_URL_SERVICIO_SOAT;
+import static com.sura.reclamaciones.utils.enums.VariablesSesion.SESION_CC_COMPLEMENTO_NUMERO_POLIZA_SOAT;
 import static com.sura.reclamaciones.utils.enums.VariablesSesion.SESION_PC_RESPUESTA_SERVICIO_SOAT;
 
 import com.sura.reclamaciones.models.soat.comunes.RequestExpedicionSoat;
@@ -57,10 +58,13 @@ public class ConsumirServicioSoapPostConHeaders {
                         .log()
                         .all()));
 
-    Serenity.setSessionVariable(SESION_PC_RESPUESTA_SERVICIO_SOAT)
-        .to(SerenityRest.lastResponse().asString());
+    Serenity.setSessionVariable(SESION_PC_RESPUESTA_SERVICIO_SOAT.getValor())
+        .to(
+            SESION_CC_COMPLEMENTO_NUMERO_POLIZA_SOAT.getValor()
+                + SerenityRest.lastResponse().getBody().jsonPath().getString("poliza"));
 
     System.out.println(SerenityRest.lastResponse().getBody().jsonPath().getString("poliza"));
-    System.out.println(Serenity.getCurrentSession().get(SESION_PC_RESPUESTA_SERVICIO_SOAT));
+    System.out.println(
+        Serenity.getCurrentSession().get(SESION_PC_RESPUESTA_SERVICIO_SOAT.getValor()));
   }
 }
