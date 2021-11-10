@@ -1,11 +1,11 @@
 package com.sura.reclamaciones.pages.guidewire.claimscenter.comunes;
 
-import static com.sura.reclamaciones.utils.enums.Constantes.COMODIN;
-
 import com.sura.reclamaciones.pages.general.GeneralPage;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebDriver;
+
+import static com.sura.reclamaciones.utils.enums.Constantes.COMODIN;
 
 public class BuscarPolizaPage extends GeneralPage {
   private String lstTipoDocumento = "//li[.='COMODIN']";
@@ -170,20 +170,19 @@ public class BuscarPolizaPage extends GeneralPage {
     realizarEsperaCarga();
   }
 
-
   public void seleccionarRiegoPolizaAtr() {
     rbtRiesgoPolizaAtr.waitUntilVisible().click();
   }
 
-
-    public void validarPoliza() {
-      for (int i=0; i<=10; i++){
-          if(lblMensajeError.isPresent()){
-              buscarPoliza();
-          }else {
-              continuarSiguientePantalla();
-          }
+  public void validarPoliza() {
+    int iteraciones = 10;
+    for (int i = 0; i <= iteraciones; i++) {
+      if (lblMensajeError.isPresent()) {
+        buscarPoliza();
+      } else {
+        continuarSiguientePantalla();
+        i = iteraciones;
       }
-
     }
+  }
 }
