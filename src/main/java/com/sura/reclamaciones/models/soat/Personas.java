@@ -18,6 +18,39 @@ public class Personas {
   private String celular;
   private String direccion;
   private String email;
+  private String fechaNacimiento;
+  private int idCiudad;
+  private String idDepartamento;
+  private int naturalezaJuridica;
+  private List<Personas> personas = new ArrayList<>();
+
+  public Personas() {}
+
+  public Personas(List<Map<String, String>> datosPersona) {
+    asignarDatos(datosPersona);
+  }
+
+  public Personas(Map<String, String> datosPersona) {
+    this.numeroDocumentoTomador =
+        Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("numeroDocumentoTomador"));
+    numeroDocumentoPropietario =
+        Utilidades.transformarCadenaEnteroCondicionado(
+            datosPersona.get("numeroDocumentoPropietario"));
+    primerApellido = datosPersona.get("primerApellido");
+    primerNombre = datosPersona.get("primerNombre");
+    razonSocial = datosPersona.get("razonSocial");
+    segundoApellido = datosPersona.get("segundoApellido");
+    segundoNombre = datosPersona.get("segundoNombre");
+    tipoDocumento = datosPersona.get("tipoDocumento");
+    celular = datosPersona.get("celular");
+    direccion = datosPersona.get("direccion");
+    email = datosPersona.get("email");
+    fechaNacimiento = datosPersona.get("fechaNacimiento");
+    idCiudad = Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("idCiudad"));
+    idDepartamento = (datosPersona.get("idDepartamento"));
+    naturalezaJuridica =
+        Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("naturalezaJuridica"));
+  }
 
   public int getNumeroDocumentoTomador() {
     return numeroDocumentoTomador;
@@ -81,41 +114,6 @@ public class Personas {
 
   public List<Personas> getPersonas() {
     return personas;
-  }
-
-  private String fechaNacimiento;
-  private int idCiudad;
-  private String idDepartamento;
-  private int naturalezaJuridica;
-  private List<Personas> personas = new ArrayList<>();
-
-  public Personas() {}
-
-  public Personas(List<Map<String, String>> datosPersona) {
-    asignarDatos(datosPersona);
-  }
-
-  public Personas(Map<String, String> datosPersona) {
-    this.numeroDocumentoTomador =
-        Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("numeroDocumentoTomador"));
-    numeroDocumentoPropietario =
-        Utilidades.transformarCadenaEnteroCondicionado(
-            datosPersona.get("numeroDocumentoPropietario"));
-    primerApellido = datosPersona.get("primerApellido");
-    primerNombre = datosPersona.get("primerNombre");
-    razonSocial = datosPersona.get("razonSocial");
-    segundoApellido = datosPersona.get("segundoApellido");
-    segundoNombre = datosPersona.get("segundoNombre");
-    tipoDocumento = datosPersona.get("tipoDocumento");
-    // celular = Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("celular"));
-    celular = datosPersona.get("celular");
-    direccion = datosPersona.get("direccion");
-    email = datosPersona.get("email");
-    fechaNacimiento = datosPersona.get("fechaNacimiento");
-    idCiudad = Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("idCiudad"));
-    idDepartamento = (datosPersona.get("idDepartamento"));
-    naturalezaJuridica =
-        Utilidades.transformarCadenaEnteroCondicionado(datosPersona.get("naturalezaJuridica"));
   }
 
   public void asignarDatos(List<Map<String, String>> datosPersona) {

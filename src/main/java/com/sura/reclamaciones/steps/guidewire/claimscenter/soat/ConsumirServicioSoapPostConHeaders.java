@@ -16,14 +16,11 @@ import net.serenitybdd.screenplay.rest.interactions.Post;
 
 public class ConsumirServicioSoapPostConHeaders {
 
-  private String restApiUrl = "http://appslab.suranet.com/apisoatexpedicion/api";
-  Actor prueba = Actor.named("prueba servicio").whoCan(CallAnApi.at(restApiUrl));
-
-  public String recurso;
-  public String usuario;
-  public String contrasena;
-  public Object request;
-  public Map<String, ?> header;
+  private String recurso;
+  private String usuario;
+  private String contrasena;
+  private Object request;
+  private Map<String, ?> header;
 
   public ConsumirServicioSoapPostConHeaders(
       String recurso,
@@ -62,9 +59,5 @@ public class ConsumirServicioSoapPostConHeaders {
         .to(
             SESION_CC_COMPLEMENTO_NUMERO_POLIZA_SOAT.getValor()
                 + SerenityRest.lastResponse().getBody().jsonPath().getString("poliza"));
-
-    System.out.println(SerenityRest.lastResponse().getBody().jsonPath().getString("poliza"));
-    System.out.println(
-        Serenity.getCurrentSession().get(SESION_PC_RESPUESTA_SERVICIO_SOAT.getValor()));
   }
 }

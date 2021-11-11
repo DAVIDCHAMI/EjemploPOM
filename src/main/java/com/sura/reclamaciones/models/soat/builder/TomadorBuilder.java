@@ -5,6 +5,8 @@ import com.sura.reclamaciones.models.soat.comunes.Persona;
 
 public class TomadorBuilder {
 
+  private TomadorBuilder() {}
+
   public static Persona conLosDatos(Personas persona) {
     return Persona.builder()
         .celular(String.valueOf(persona.getPersonas().get(0).getCelular()))

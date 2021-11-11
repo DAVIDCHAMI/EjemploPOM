@@ -6,6 +6,8 @@ import java.util.Map;
 
 public class ConsumirServicioSoat {
 
+  private ConsumirServicioSoat() {}
+
   public static ConsumirServicioSoapPostConHeaders postConHeadeers(
       String recurso,
       EnumCredencialesServicios enumCredenciales,

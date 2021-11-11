@@ -5,6 +5,8 @@ import com.sura.reclamaciones.models.soat.comunes.Persona;
 
 public class PropietarioBuilder {
 
+  private PropietarioBuilder() {}
+
   public static Persona conLosDatos(Personas persona) {
     return Persona.builder()
         .numeroDocumento(

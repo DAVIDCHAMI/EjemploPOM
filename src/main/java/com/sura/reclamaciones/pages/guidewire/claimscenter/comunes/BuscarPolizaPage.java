@@ -181,7 +181,7 @@ public class BuscarPolizaPage extends GeneralPage {
         buscarPoliza();
       } else {
         continuarSiguientePantalla();
-        i = iteraciones;
+        break;
       }
     }
   }

@@ -1,6 +1,14 @@
 package com.sura.reclamaciones.pages.general;
 
+import static com.sura.reclamaciones.utils.enums.Constantes.COMODIN;
+import static com.sura.reclamaciones.utils.enums.Constantes.NUMERO_INTENTOS_ESPERA_ELEMENTO;
+import static com.sura.reclamaciones.utils.enums.Tablas.CABECERAS_CC;
+import static com.sura.reclamaciones.utils.enums.Tablas.REGISTROS_CC;
+
 import com.sura.reclamaciones.utils.enums.Tablas;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
@@ -9,15 +17,6 @@ import net.thucydides.core.steps.StepInterceptor;
 import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import static com.sura.reclamaciones.utils.enums.Constantes.COMODIN;
-import static com.sura.reclamaciones.utils.enums.Constantes.NUMERO_INTENTOS_ESPERA_ELEMENTO;
-import static com.sura.reclamaciones.utils.enums.Tablas.CABECERAS_CC;
-import static com.sura.reclamaciones.utils.enums.Tablas.REGISTROS_CC;
 
 public class GeneralPage extends PageObject {
   @FindBy(
